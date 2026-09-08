@@ -1,0 +1,8 @@
+{
+    "name": "yourcompany/hris-email-blaster",
+    "description": "Basic PHP tool to email a CSV list of companies about the HRIS system",
+    "require": {
+        "php": ">=7.4",
+        "phpmailer/phpmailer": "^6.9"
+    }
+}
