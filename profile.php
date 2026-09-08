@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HRIS Email Blaster</title>
+    <title>Send Company Profile</title>
     <style>
         body { font-family: Arial, Helvetica, sans-serif; max-width: 560px; margin: 60px auto; color: #222; }
         h1 { font-size: 22px; }
         label { display: block; margin-top: 16px; font-weight: bold; }
-        input[type="file"], input[type="text"] {
+        input[type="text"], input[type="email"] {
             width: 100%; padding: 8px; margin-top: 6px; box-sizing: border-box;
             border: 1px solid #ccc; border-radius: 4px;
         }
@@ -24,37 +24,31 @@
 </head>
 <body>
 
-    <h1>HRIS Company Email Blaster</h1>
-    <p>Upload a CSV of companies to email them about the HRIS system.</p>
+    <h1>Send Company Profile</h1>
+    <p>Email a recipient a short introduction to Chromatic Softwares with our company profile PDF attached.</p>
 
-    <form action="send.php" method="post" enctype="multipart/form-data">
+    <form action="profile_send.php" method="post">
 
-        <label for="csv_file">Companies CSV file</label>
-        <input type="file" id="csv_file" name="csv_file" accept=".csv" required>
-        <div class="hint">Columns: <code>company_name,email</code> (header row optional).</div>
+        <label for="recipient_name">Recipient / company name</label>
+        <input type="text" id="recipient_name" name="recipient_name" placeholder="e.g. Acme Inc">
+        <div class="hint">Optional — used for the greeting. Leave blank for a generic "Hello there,".</div>
+
+        <label for="recipient_email">Recipient email</label>
+        <input type="email" id="recipient_email" name="recipient_email" required placeholder="name@company.com">
 
         <label for="subject">Email subject</label>
         <input type="text" id="subject" name="subject"
-               value="Introducing Our HRIS System" required>
+               value="Chromatic Softwares — Company Profile" required>
 
         <div class="checkbox-row">
             <input type="checkbox" id="resend" name="resend" value="1">
-            <label for="resend">Resend to companies already emailed</label>
+            <label for="resend">Resend even if we already sent this recipient a company profile</label>
         </div>
-        <div class="hint">Unchecked: companies that already received an email are skipped automatically.</div>
 
-        <button type="submit">Send Emails</button>
+        <button type="submit">Send Company Profile</button>
     </form>
 
-    <p style="margin-top:30px;">
-        <a href="log.php">View sent email log &rarr;</a>
-        &nbsp;|&nbsp;
-        <a href="recipients.php">View already-emailed companies &rarr;</a>
-        &nbsp;|&nbsp;
-        <a href="profile.php">Send company profile &rarr;</a>
-        &nbsp;|&nbsp;
-        <a href="resume.php">Resume blaster &rarr;</a>
-    </p>
+    <p style="margin-top:30px;"><a href="index.php">&larr; Back to HRIS blaster</a></p>
 
 </body>
 </html>

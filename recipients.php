@@ -1,7 +1,15 @@
 <?php
 require __DIR__ . '/includes/db.php';
 
-$recipients = getAlreadySentRecipients();
+$campaignLabels = [
+    ''                => 'All campaigns',
+    'hris_intro'      => 'HRIS Intro',
+    'company_profile' => 'Company Profile',
+    'resume'          => 'Resume',
+];
+
+$filterCampaign = trim((string) ($_GET['campaign'] ?? ''));
+$recipients = getAlreadySentRecipients($filterCampaign !== '' ? $filterCampaign : null);
 
 $filter = trim((string) ($_GET['q'] ?? ''));
 if ($filter !== '') {
@@ -44,6 +52,13 @@ if ($filter !== '') {
     <form class="filters" method="get">
         <input type="text" name="q" placeholder="Filter by company or email"
                value="<?= htmlspecialchars($filter) ?>">
+        <select name="campaign">
+            <?php foreach ($campaignLabels as $value => $label): ?>
+                <option value="<?= htmlspecialchars($value) ?>" <?= $filterCampaign === $value ? 'selected' : '' ?>>
+                    <?= htmlspecialchars($label) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
         <button type="submit">Filter</button>
         <a href="recipients.php">Clear</a>
     </form>
@@ -55,6 +70,7 @@ if ($filter !== '') {
         <tr>
             <th>Company</th>
             <th>Email</th>
+            <th>Campaign</th>
             <th>Times Sent</th>
             <th>First Sent</th>
             <th>Last Sent</th>
@@ -64,6 +80,7 @@ if ($filter !== '') {
         <tr>
             <td><?= $r['company_name'] !== '' ? htmlspecialchars($r['company_name']) : '<em style="color:#999;">(no name)</em>' ?></td>
             <td><?= htmlspecialchars($r['email']) ?></td>
+            <td><?= htmlspecialchars($campaignLabels[$r['campaign']] ?? $r['campaign']) ?></td>
             <td><?= (int) $r['times_sent'] ?></td>
             <td><?= htmlspecialchars($r['first_sent_at']) ?></td>
             <td><?= htmlspecialchars($r['last_sent_at']) ?></td>
