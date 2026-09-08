@@ -11,20 +11,33 @@ require __DIR__ . '/includes/mailer.php';
 require __DIR__ . '/includes/log.php';
 require __DIR__ . '/includes/db.php';
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($_FILES['csv_file']['tmp_name'])) {
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: index.php');
     exit;
 }
 
 $subject = trim((string) ($_POST['subject'] ?? 'Introducing Our HRIS System'));
 $allowResend = !empty($_POST['resend']);
-$csvPath = $_FILES['csv_file']['tmp_name'];
 
-if ($_FILES['csv_file']['error'] !== UPLOAD_ERR_OK) {
-    die('Upload failed. Please try again.');
+$sendMode = ($_POST['send_mode'] ?? 'csv') === 'single' ? 'single' : 'csv';
+$recipientEmail = trim((string) ($_POST['recipient_email'] ?? ''));
+
+if ($sendMode === 'single' && $recipientEmail !== '') {
+    if (!filter_var($recipientEmail, FILTER_VALIDATE_EMAIL)) {
+        die('Please provide a valid recipient email. <a href="index.php">Go back</a>');
+    }
+    $companies = [['name' => trim((string) ($_POST['recipient_name'] ?? '')), 'email' => $recipientEmail]];
+    $parseErrors = [];
+} else {
+    if (empty($_FILES['csv_file']['tmp_name'])) {
+        header('Location: index.php');
+        exit;
+    }
+    if ($_FILES['csv_file']['error'] !== UPLOAD_ERR_OK) {
+        die('Upload failed. Please try again.');
+    }
+    [$companies, $parseErrors] = parseCompaniesCsv($_FILES['csv_file']['tmp_name']);
 }
-
-[$companies, $parseErrors] = parseCompaniesCsv($csvPath);
 
 $mail  = createMailer();
 $delay = (int) (getenv('MAIL_SEND_DELAY_MICROSECONDS') ?: 500000);
