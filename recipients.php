@@ -43,6 +43,8 @@ if ($filter !== '') {
     </style>
 </head>
 <body>
+<?php $activeNav = 'sent'; include __DIR__ . '/includes/nav.php'; ?>
+<p style="margin:-12px 0 20px 0; font-size:14px;"><a href="log.php">Send log</a> &nbsp;|&nbsp; <strong>Already-emailed companies</strong></p>
 
     <h1>Already-Emailed Companies</h1>
     <div class="summary">
@@ -90,9 +92,6 @@ if ($filter !== '') {
     </table>
     <?php endif; ?>
 
-    <a class="back" href="index.php">&larr; Back to send form</a>
-    &nbsp;|&nbsp;
-    <a class="back" href="log.php">View full send log &rarr;</a>
 
 </body>
 </html>

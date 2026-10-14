@@ -23,6 +23,7 @@
     </style>
 </head>
 <body>
+<?php $activeNav = 'profile'; include __DIR__ . '/includes/nav.php'; ?>
 
     <h1>Send Company Profile</h1>
     <p>Email a recipient a short introduction to Chromatic Softwares with our company profile PDF attached.</p>
@@ -48,7 +49,8 @@
         <button type="submit">Send Company Profile</button>
     </form>
 
-    <p style="margin-top:30px;"><a href="index.php">&larr; Back to HRIS blaster</a></p>
+
+<?php $previewType = 'profile'; include __DIR__ . '/includes/preview.php'; ?>
 
 </body>
 </html>

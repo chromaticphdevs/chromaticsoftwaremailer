@@ -30,6 +30,7 @@
     </style>
 </head>
 <body>
+<?php $activeNav = 'hris'; include __DIR__ . '/includes/nav.php'; ?>
 
     <h1>HRIS Company Email Blaster</h1>
     <p>Upload a CSV of companies, or send to a single recipient, to email them about the HRIS system.</p>
@@ -69,15 +70,6 @@
         <button type="submit">Send Emails</button>
     </form>
 
-    <p style="margin-top:30px;">
-        <a href="log.php">View sent email log &rarr;</a>
-        &nbsp;|&nbsp;
-        <a href="recipients.php">View already-emailed companies &rarr;</a>
-        &nbsp;|&nbsp;
-        <a href="profile.php">Send company profile &rarr;</a>
-        &nbsp;|&nbsp;
-        <a href="resume.php">Resume blaster &rarr;</a>
-    </p>
 
     <script>
         function setSendMode(mode) {
@@ -99,6 +91,8 @@
             }
         }
     </script>
+
+<?php $previewType = 'hris'; include __DIR__ . '/includes/preview.php'; ?>
 
 </body>
 </html>

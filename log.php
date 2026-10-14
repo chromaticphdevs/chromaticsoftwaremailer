@@ -46,6 +46,8 @@ if ($filterStatus !== '' && in_array($filterStatus, ['sent', 'failed'], true)) {
     </style>
 </head>
 <body>
+<?php $activeNav = 'sent'; include __DIR__ . '/includes/nav.php'; ?>
+<p style="margin:-12px 0 20px 0; font-size:14px;"><strong>Send log</strong> &nbsp;|&nbsp; <a href="recipients.php">Already-emailed companies</a></p>
 
     <h1>Sent Email Log</h1>
     <div class="summary">
@@ -92,9 +94,6 @@ if ($filterStatus !== '' && in_array($filterStatus, ['sent', 'failed'], true)) {
     </table>
     <?php endif; ?>
 
-    <a class="back" href="index.php">&larr; Back to send form</a>
-    &nbsp;|&nbsp;
-    <a class="back" href="recipients.php">View already-emailed companies &rarr;</a>
 
 </body>
 </html>

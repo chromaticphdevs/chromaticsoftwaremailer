@@ -31,6 +31,7 @@
     </style>
 </head>
 <body>
+<?php $activeNav = 'resume'; include __DIR__ . '/includes/nav.php'; ?>
 
     <h1>Resume Blaster</h1>
     <p>Upload a CSV of companies, or send to a single recipient, to email them your resume. Sent from your own personal mail account, separate from the Chromatic Softwares mailer.</p>
@@ -75,13 +76,6 @@
         before using this page — they're separate from the Chromatic Softwares mailer.
     </div>
 
-    <p style="margin-top:30px;">
-        <a href="index.php">&larr; Back to HRIS blaster</a>
-        &nbsp;|&nbsp;
-        <a href="log.php">View sent email log &rarr;</a>
-        &nbsp;|&nbsp;
-        <a href="recipients.php?campaign=resume">View already-emailed companies &rarr;</a>
-    </p>
 
     <script>
         function setSendMode(mode) {
@@ -103,6 +97,8 @@
             }
         }
     </script>
+
+<?php $previewType = 'resume'; include __DIR__ . '/includes/preview.php'; ?>
 
 </body>
 </html>

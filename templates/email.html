@@ -1,85 +1,185 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chromatic Softwares — HRIS System</title>
+<meta name="color-scheme" content="light">
+<title>Chromatic Softwares — Timekeeping, Attendance &amp; HRIS</title>
+<style>
+    @media only screen and (max-width: 620px) {
+        .container { width: 100% !important; }
+        .px { padding-left: 22px !important; padding-right: 22px !important; }
+        .hero-title { font-size: 26px !important; line-height: 32px !important; }
+        .col { display: block !important; width: 100% !important; }
+        .col-gap { padding: 0 0 12px 0 !important; }
+    }
+</style>
 </head>
-<body style="margin:0; padding:0; background-color:#f4f6fb; font-family: Arial, Helvetica, sans-serif;">
+<body style="margin:0; padding:0; background-color:#eef2f9; font-family: -apple-system, 'Segoe UI', Roboto, Arial, Helvetica, sans-serif; -webkit-text-size-adjust:100%;">
 
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f6fb; padding: 30px 0;">
+<!-- Preheader (inbox preview text) -->
+<div style="display:none; max-height:0; overflow:hidden; opacity:0; color:#eef2f9; font-size:1px; line-height:1px;">
+    Digital staff records, automated attendance, payroll and online payslips — all in one platform.
+</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#eef2f9;">
 <tr>
-<td align="center">
+<td align="center" style="padding: 32px 12px;">
 
-    <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08);">
+    <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; background-color:#ffffff; border-radius:12px; overflow:hidden; box-shadow: 0 2px 12px rgba(15,23,42,0.08);">
 
-        <!-- Header -->
+        <!-- Brand bar -->
         <tr>
-            <td style="background-color:#1d4ed8; padding: 28px 32px;">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+            <td class="px" style="padding: 22px 36px; background-color:#ffffff; border-bottom:1px solid #e5e9f2;">
+                <table role="presentation" cellpadding="0" cellspacing="0">
                     <tr>
-                        <td>
+                        <td style="vertical-align:middle;">
                             <img src="https://chromaticph.com/assets/images/logo.jpg" alt="Chromatic Softwares"
-                                 width="36" height="36"
-                                 style="vertical-align:middle; border-radius: 6px;">
-                            <span style="color:#ffffff; font-size: 18px; font-weight: bold; vertical-align:middle; margin-left: 10px;">
-                                Chromatic Softwares
-                            </span>
+                                 width="34" height="34" style="display:block; border-radius:8px;">
+                        </td>
+                        <td style="vertical-align:middle; padding-left:10px; font-size:16px; font-weight:700; color:#0f172a; letter-spacing:0.2px;">
+                            Chromatic Softwares
                         </td>
                     </tr>
                 </table>
             </td>
         </tr>
 
-        <!-- Body -->
+        <!-- Hero -->
         <tr>
-            <td style="padding: 32px; color:#1f2937; font-size: 15px; line-height: 1.6;">
+            <td class="px" style="background-color:#1e3a8a; background-image:linear-gradient(135deg,#1e3a8a 0%,#1d4ed8 100%); padding: 44px 36px;">
+                <p style="margin:0 0 12px 0; font-size:12px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; color:#93c5fd;">
+                    Timekeeping &middot; Attendance &middot; HRIS
+                </p>
+                <h1 class="hero-title" style="margin:0 0 14px 0; font-size:30px; line-height:38px; font-weight:800; color:#ffffff;">
+                    Run HR on one platform, not five spreadsheets.
+                </h1>
+                <p style="margin:0; font-size:16px; line-height:25px; color:#dbeafe;">
+                    From digital staff records to automated payroll and online payslips &mdash; built for teams with shifting, multi-location workforces.
+                </p>
+            </td>
+        </tr>
 
-                <p style="margin-top:0;">{{greeting_line}}</p>
+        <!-- Intro -->
+        <tr>
+            <td class="px" style="padding: 36px 36px 8px 36px; color:#1f2937; font-size:15px; line-height:25px;">
 
-                <p>
-                    We're <strong>Chromatic Softwares</strong> — we design and build custom software for
-                    small and medium businesses. We wanted to introduce our
-                    <strong>Timekeeping, Attendance &amp; HRIS system</strong>, built to take you from
-                    clock-in to payroll-ready, all in one platform.
+                <p style="margin:0 0 16px 0; font-size:16px;">{{greeting_line}}</p>
+
+                <p style="margin:0 0 16px 0;">
+                    We're <strong>Chromatic Softwares</strong> &mdash; we help small and medium businesses
+                    <strong>digitalize and simplify their day-to-day operations</strong>.
                 </p>
 
-                <p>Here's what it includes:</p>
-                <ul style="padding-left: 20px; margin: 0 0 16px 0;">
-                    <li>Biometric-ready, real-time timekeeping</li>
-                    <li>Shift &amp; schedule management</li>
-                    <li>Mobile app with geolocation time-in / time-out</li>
-                    <li>QR code clock-in / clock-out</li>
-                    <li>Selfie-based clock-in / clock-out</li>
-                    <li>Mobile application with geotagging for attendance verification</li>
-                    <li>Payroll batching with online payslips (QR codes)</li>
-                    <li>Bonuses, gov't contributions, loans &amp; other deductions</li>
-                    <li>Multi-branch, multi-location support in one dashboard</li>
-                </ul>
-
-                <p>
-                    It's especially built for teams managing <strong>contract-based and shifting
-                    workforces</strong> across multiple locations.
+                <p style="margin:0 0 16px 0;">
+                    Our <strong>Timekeeping, Attendance &amp; HRIS system</strong> helps you manage your employees
+                    more efficiently, and gives your staff a more modern, professional workplace experience with
+                    easy access to their <strong>digital payslips and employee information</strong>.
                 </p>
 
-                <p>
-                    We'd love the chance to walk {{team_reference}} through the system and
-                    see how it could fit your workflow — just reply to this email and we'll set up a time.
+            </td>
+        </tr>
+
+        <!-- Feature groups -->
+        <tr>
+            <td class="px" style="padding: 8px 36px 8px 36px;">
+
+                <p style="margin:8px 0 14px 0; font-size:13px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:#64748b;">
+                    What's included
                 </p>
 
-                <!-- CTA -->
-                <table role="presentation" cellpadding="0" cellspacing="0" style="margin: 24px 0;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                     <tr>
-                        <td style="background-color:#1d4ed8; border-radius: 6px;">
+                        <!-- Attendance -->
+                        <td class="col col-gap" width="50%" valign="top" style="padding: 0 8px 16px 0;">
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f8fd; border:1px solid #e1e8f5; border-radius:10px;">
+                                <tr>
+                                    <td style="padding:18px 18px 14px 18px;">
+                                        <p style="margin:0 0 10px 0; font-size:15px; font-weight:700; color:#1d4ed8;">Smart attendance</p>
+                                        <p style="margin:0; font-size:14px; line-height:23px; color:#374151;">
+                                            &#10003;&nbsp; Biometric-ready, real-time timekeeping<br>
+                                            &#10003;&nbsp; QR code clock-in / clock-out<br>
+                                            &#10003;&nbsp; Selfie-based clock-in / clock-out<br>
+                                            &#10003;&nbsp; Shift &amp; schedule management
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <!-- Mobile -->
+                        <td class="col" width="50%" valign="top" style="padding: 0 0 16px 8px;">
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f8fd; border:1px solid #e1e8f5; border-radius:10px;">
+                                <tr>
+                                    <td style="padding:18px 18px 14px 18px;">
+                                        <p style="margin:0 0 10px 0; font-size:15px; font-weight:700; color:#1d4ed8;">Mobile &amp; geotagging</p>
+                                        <p style="margin:0; font-size:14px; line-height:23px; color:#374151;">
+                                            &#10003;&nbsp; Mobile app time-in / time-out<br>
+                                            &#10003;&nbsp; Geolocation &amp; geotag verification<br>
+                                            &#10003;&nbsp; Works across field &amp; on-site teams
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- Payroll -->
+                        <td class="col col-gap" width="50%" valign="top" style="padding: 0 8px 0 0;">
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f8fd; border:1px solid #e1e8f5; border-radius:10px;">
+                                <tr>
+                                    <td style="padding:18px 18px 14px 18px;">
+                                        <p style="margin:0 0 10px 0; font-size:15px; font-weight:700; color:#1d4ed8;">Payroll &amp; payslips</p>
+                                        <p style="margin:0; font-size:14px; line-height:23px; color:#374151;">
+                                            &#10003;&nbsp; Payroll batching<br>
+                                            &#10003;&nbsp; Online payslips (QR codes)<br>
+                                            &#10003;&nbsp; Bonuses, gov't contributions, loans &amp; other deductions
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <!-- Multi-branch -->
+                        <td class="col" width="50%" valign="top" style="padding: 0 0 0 8px;">
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f8fd; border:1px solid #e1e8f5; border-radius:10px;">
+                                <tr>
+                                    <td style="padding:18px 18px 14px 18px;">
+                                        <p style="margin:0 0 10px 0; font-size:15px; font-weight:700; color:#1d4ed8;">Multi-branch ready</p>
+                                        <p style="margin:0; font-size:14px; line-height:23px; color:#374151;">
+                                            &#10003;&nbsp; Multi-branch, multi-location support<br>
+                                            &#10003;&nbsp; One dashboard for everything<br>
+                                            &#10003;&nbsp; Built for contract-based &amp; shifting workforces
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+
+        <!-- Closing + CTA -->
+        <tr>
+            <td class="px" style="padding: 28px 36px 36px 36px; color:#1f2937; font-size:15px; line-height:25px;">
+
+                <p style="margin:0 0 22px 0;">
+                    We'd love the chance to walk {{team_reference}} through the system and see how it could
+                    fit your workflow &mdash; just reply to this email and we'll set up a time.
+                </p>
+
+                <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 28px 0;">
+                    <tr>
+                        <td style="background-color:#1d4ed8; border-radius:8px;">
                             <a href="https://chromaticph.com/solutions/timekeeping-hris"
-                               style="display:inline-block; padding: 12px 24px; color:#ffffff; text-decoration:none; font-weight:bold; font-size: 14px;">
+                               style="display:inline-block; padding:14px 28px; color:#ffffff; text-decoration:none; font-weight:700; font-size:15px;">
                                 See the HRIS System &rarr;
                             </a>
                         </td>
                     </tr>
                 </table>
 
-                <p style="margin-bottom:0;">
+                <p style="margin:0; padding-top:20px; border-top:1px solid #e5e9f2;">
                     Best regards,<br>
                     <strong>The Chromatic Softwares Team</strong>
                 </p>
@@ -89,17 +189,17 @@
 
         <!-- Footer -->
         <tr>
-            <td style="background-color:#f4f6fb; padding: 24px 32px; font-size: 12px; color:#6b7280; border-top: 1px solid #e5e7eb;">
-                <p style="margin: 0 0 6px 0; font-weight:bold; color:#1d4ed8;">Chromatic Softwares</p>
-                <p style="margin: 0 0 4px 0;">Custom software, built for how your business actually runs.</p>
-                <p style="margin: 0 0 4px 0;">
-                    <a href="mailto:chromaticsoftwares@gmail.com" style="color:#6b7280; text-decoration:underline;">chromaticsoftwares@gmail.com</a>
-                    &nbsp;|&nbsp; +63 976 235 2221 &nbsp;|&nbsp; Metro Manila, Philippines
+            <td class="px" style="background-color:#0f172a; padding: 28px 36px; font-size:12px; line-height:19px; color:#94a3b8;">
+                <p style="margin:0 0 6px 0; font-size:14px; font-weight:700; color:#ffffff;">Chromatic Softwares</p>
+                <p style="margin:0 0 12px 0;">Custom software, built for how your business actually runs.</p>
+                <p style="margin:0 0 12px 0;">
+                    <a href="mailto:chromaticsoftwares@gmail.com" style="color:#cbd5e1; text-decoration:underline;">chromaticsoftwares@gmail.com</a>
+                    &nbsp;&middot;&nbsp; +63 976 235 2221 &nbsp;&middot;&nbsp; Metro Manila, Philippines
                 </p>
-                <p style="margin: 12px 0 0 0;">
-                    <a href="https://chromaticph.com/" style="color:#1d4ed8; text-decoration:none;">chromaticph.com</a>
-                    &nbsp;|&nbsp;
-                    <a href="https://www.facebook.com/chromaticsoftwares" style="color:#1d4ed8; text-decoration:none;">Facebook</a>
+                <p style="margin:0;">
+                    <a href="https://chromaticph.com/" style="color:#93c5fd; text-decoration:none; font-weight:700;">chromaticph.com</a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="https://www.facebook.com/chromaticsoftwares" style="color:#93c5fd; text-decoration:none; font-weight:700;">Facebook</a>
                 </p>
             </td>
         </tr>
