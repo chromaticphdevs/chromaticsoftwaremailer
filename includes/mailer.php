@@ -35,6 +35,7 @@ function createMailer(): PHPMailer
  * Falls back to generic phrasing when no company name is available.
  */
 define('AGENT_PHOTO_PATH', __DIR__ . '/../assets/agent-mark-gonzales.jpg');
+define('HRIS_PROPOSAL_PDF_PATH', __DIR__ . '/../assets/Chromatic-HRIS-Proposal.pdf');
 
 function buildEmailBody(string $companyName, string $agentPhotoSrc = 'cid:agent_photo'): string
 {
@@ -304,6 +305,9 @@ function sendCompanyEmail(PHPMailer $mail, string $companyName, string $companyE
         if (is_file(AGENT_PHOTO_PATH)) {
             $mail->addEmbeddedImage(AGENT_PHOTO_PATH, 'agent_photo', 'mark-gonzales.jpg');
         }
+        if (is_file(HRIS_PROPOSAL_PDF_PATH)) {
+            $mail->addAttachment(HRIS_PROPOSAL_PDF_PATH, 'Chromatic HRIS Proposal 2026.pdf');
+        }
         $mail->AltBody = buildPlainGreeting($companyName) . "
 
 " .
@@ -331,6 +335,7 @@ function sendCompanyEmail(PHPMailer $mail, string $companyName, string $companyE
             "- Mobile access for employees, including payslips
 
 " .
+            "Our HRIS proposal, with plans, pricing and what is included, is attached.\n\n" .
             "Learn more: https://chromaticph.com/solutions/timekeeping-hris
 
 " .
