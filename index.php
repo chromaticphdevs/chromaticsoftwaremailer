@@ -77,6 +77,8 @@
         <a href="profile.php">Send company profile &rarr;</a>
         &nbsp;|&nbsp;
         <a href="resume.php">Resume blaster &rarr;</a>
+        &nbsp;|&nbsp;
+        <a href="mailer.php">Custom mailer &rarr;</a>
     </p>
 
     <script>

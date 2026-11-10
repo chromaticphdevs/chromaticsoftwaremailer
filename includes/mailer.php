@@ -226,6 +226,63 @@ function sendResumeEmail(PHPMailer $mail, string $companyName, string $companyEm
 }
 
 /**
+ * Wrap freeform rich-text HTML (from the custom mailer page) inside the shared
+ * email chrome (header/footer). No greeting/company-name substitution — the
+ * content is exactly what was typed into the editor.
+ */
+function buildMailerEmailBody(string $contentHtml): string
+{
+    $template = file_get_contents(__DIR__ . '/../templates/mailer_email.html');
+
+    // Strip anything that shouldn't ride along in an email body / doesn't belong
+    // coming from a rich-text editor.
+    $safeContent = preg_replace('/<(script|style)\b[^>]*>.*?<\/\1>/is', '', $contentHtml) ?? $contentHtml;
+
+    return str_replace('{{content}}', $safeContent, $template);
+}
+
+/**
+ * Send a one-off custom email (recipient + subject + rich-text body) built via
+ * the mailer page, with optional attachments.
+ *
+ * $attachments is a list of ['tmp_name' => string, 'name' => string] pairs —
+ * typically taken straight from $_FILES, so PHP's own request-scoped temp file
+ * is what gets attached. Nothing is ever copied into a project folder, so no
+ * attachment is persisted on the server beyond the single send request.
+ *
+ * Returns [success(bool), errorMessage(?string)].
+ */
+function sendMailerEmail(
+    PHPMailer $mail,
+    string $recipientEmail,
+    string $recipientName,
+    string $subject,
+    string $contentHtml,
+    array $attachments = []
+): array {
+    try {
+        $mail->clearAddresses();
+        $mail->clearAttachments();
+
+        $mail->addAddress($recipientEmail, $recipientName);
+        $mail->Subject = $subject;
+        $mail->Body    = buildMailerEmailBody($contentHtml);
+        $mail->AltBody = trim(strip_tags($contentHtml));
+
+        foreach ($attachments as $attachment) {
+            if (is_file($attachment['tmp_name'])) {
+                $mail->addAttachment($attachment['tmp_name'], $attachment['name']);
+            }
+        }
+
+        $mail->send();
+        return [true, null];
+    } catch (Exception $e) {
+        return [false, $mail->ErrorInfo];
+    }
+}
+
+/**
  * Send a single email to one company. Returns [success(bool), errorMessage(?string)].
  */
 function sendCompanyEmail(PHPMailer $mail, string $companyName, string $companyEmail, string $subject): array
